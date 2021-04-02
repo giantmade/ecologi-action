@@ -22,7 +22,7 @@ The raw response from the Ecologi API.
 
 ## Example usage
 
-uses: giantmade/ecologi-action@v1
-with:
-  ecologi_api_key: ${{ secrets.ECOLOGI_API_KEY }}
-  trees: 1
+    uses: giantmade/ecologi-action@v1
+    with:
+      ecologi_api_key: ${{ secrets.ECOLOGI_API_KEY }}
+      trees: 1
