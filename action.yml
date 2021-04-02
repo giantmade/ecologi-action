@@ -1,0 +1,20 @@
+# action.yml
+name: 'Plant Trees'
+description: 'Plant trees while you code. Uses the Ecologi API.'
+inputs:
+  ecologi_api_key:
+    description: 'Ecologi API key'
+    required: true
+  trees:
+    description: 'Number of trees to plant'
+    required: true
+    default: '1'
+outputs:
+  ecologi-response:
+    description: 'The complete response from the Ecologi API'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.ecologi_api_key}}
+    - ${{ inputs.trees }}
