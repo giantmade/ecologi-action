@@ -7,4 +7,4 @@ output = $(curl -H "Content-Type: application/json" \
                 --data '{ "number": '$2', "test":true }' \
                 https://public.ecologi.com/impact/trees)
 
-echo "::set-output name=ecologi-response::$output"
+echo "::set-output name=response::$output"
