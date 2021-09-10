@@ -22,7 +22,22 @@ The raw response from the Ecologi API.
 
 ## Example usage
 
-    uses: giantmade/ecologi-action@v1
-    with:
-      ecologi_api_key: ${{ secrets.ECOLOGI_API_KEY }}
-      trees: 1
+    name: Ecologi
+    
+    on: [push]
+    
+    jobs:
+      ecologi:
+        name: Plant A Tree
+        runs-on: ubuntu-latest
+    
+        steps:
+          - name: API Request
+            id: ecologi
+            uses: giantmade/ecologi-action@v1.0.1
+            with:
+              ecologi_api_key: ${{ secrets.ECOLOGI_API_KEY }}
+              trees: 1
+    
+          - name: API Response
+            run: echo "${{ steps.ecologi.outputs.response }}"
