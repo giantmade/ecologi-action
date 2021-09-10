@@ -34,7 +34,7 @@ The raw response from the Ecologi API.
         steps:
           - name: API Request
             id: ecologi
-            uses: giantmade/ecologi-action@v1.0.1
+            uses: giantmade/ecologi-action@v1.1
             with:
               ecologi_api_key: ${{ secrets.ECOLOGI_API_KEY }}
               trees: 1
