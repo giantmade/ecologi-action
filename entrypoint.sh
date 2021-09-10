@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-output = $(curl -H "Content-Type: application/json" \
+output=$(curl -H "Content-Type: application/json" \
                 -H "Authorization: Bearer $1" \
                 -H "Idempotency-Key: $GITHUB_RUN_ID" \
                 --request POST \
