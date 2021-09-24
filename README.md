@@ -41,3 +41,29 @@ The raw response from the Ecologi API.
     
           - name: API Response
             run: echo "${{ steps.ecologi.outputs.response }}"
+
+    name: Ecologi
+
+    on:
+      pull_request:
+        branches:
+          - develop
+          - main
+        types: [closed]
+    
+    jobs:
+      ecologi:
+        name: Plant A Tree
+        runs-on: ubuntu-latest
+    
+        if: github.event.pull_request.merged == true
+        steps:
+          - name: API Request
+            id: ecologi
+            uses: giantmade/ecologi-action@v1.1.1
+            with:
+              ecologi_api_key: ${{ secrets.ECOLOGI_API_KEY }}
+              trees: 1
+    
+          - name: API Response
+            run: echo "${{ steps.ecologi.outputs.response }}"
